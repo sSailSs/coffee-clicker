@@ -209,11 +209,6 @@ a:focus {
   --fall-ease: cubic-bezier(0.2, 0.75, 0.28, 1);
 }
 
-.sugar--falling {
-  animation: sugar-fall var(--fall-dur) var(--fall-ease) both;
-  animation-delay: var(--fall-delay);
-}
-
 @keyframes sugar-fall {
   0% {
     opacity: 0;
