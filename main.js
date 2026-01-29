@@ -17,19 +17,24 @@ class Coffee {
 
   addSugar() {
     console.log("Sugar added to the coffee.");
-    this.renderSugar();
+    const sugar = this.renderSugar();
     setTimeout(() => {
       this.sugarAmount += 1;
       this.renderCoffee();
+    }, 500);
+
+    setTimeout(() => {
+      sugar.remove();
     }, 1000);
   }
 
   renderSugar() {
     const sugar = document.createElement("div");
     sugar.classList.add("sugar");
-    sugar.textContent = `Sugar: ${this.sugarAmount}`;
-    this.coffeeElement.appendChild(sugar);
-    this.coffeeElement.style.left = 10 + Math.random() * 80 + "%";
+    sugar.style.left = 10 + Math.random() * 80 + "%";
+
+    this.container.appendChild(sugar);
+    return sugar;
   }
 
   renderCoffee() {
