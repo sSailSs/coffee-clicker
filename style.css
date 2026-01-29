@@ -179,7 +179,6 @@ a:focus {
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
-  padding: 2rem 1rem;
   position: relative;
   height: 500px;
   width: fit-content;
@@ -187,8 +186,8 @@ a:focus {
 }
 
 .sugar {
-  width: 14px;
-  height: 14px;
+  width: 30px;
+  height: 30px;
   background-image: url("public/sucre.webp");
   background-size: cover;
   background-repeat: no-repeat;
@@ -196,45 +195,41 @@ a:focus {
   position: absolute;
   top: -18px;
   left: 50%;
-  transform: translateX(-50%) translateY(0) scale(0.95);
+  transform: translateX(-50%) scale(0.95);
   will-change: transform, opacity;
   pointer-events: none;
   opacity: 0;
   filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.1));
 
-  --fall-dur: 820ms;
+  --fall-dur: 1000ms;
   --fall-delay: 0ms;
   --fall-x: 0px;
   --fall-rot: 260deg;
   --fall-ease: cubic-bezier(0.2, 0.75, 0.28, 1);
+
+  animation: sugar-fall var(--fall-dur) var(--fall-ease) var(--fall-delay)
+    forwards;
 }
 
 @keyframes sugar-fall {
   0% {
     opacity: 0;
-    transform: translateX(calc(var(--fall-x))) translateY(-26px) scale(0.7)
-      rotate(0deg);
+    transform: translateX(calc(var(--fall-x))) scale(0.7);
+    top: 0%;
   }
-  55% {
+  20% {
     opacity: 1;
-    transform: translateX(calc(var(--fall-x))) translateY(68px) scale(1.06)
-      rotate(calc(var(--fall-rot)));
   }
   82% {
-    transform: translateX(calc(var(--fall-x))) translateY(56px) scale(0.96)
-      rotate(calc(var(--fall-rot)));
+    opacity: 1;
+    transform: translateX(calc(var(--fall-x))) scale(0.96);
+    top: 85%;
   }
   100% {
     opacity: 1;
-    transform: translateX(calc(var(--fall-x))) translateY(60px) scale(1)
-      rotate(calc(var(--fall-rot)));
+    transform: translateX(calc(var(--fall-x))) scale(1);
+    top: 80%;
   }
-}
-
-.sugar--landed {
-  animation: none;
-  opacity: 1;
-  transform: translateX(calc(var(--fall-x))) translateY(60px) scale(1);
 }
 
 .cup {
