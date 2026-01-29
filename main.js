@@ -12,6 +12,13 @@ class Coffee {
       this.addSugar();
     });
 
+    document.body.addEventListener("keydown", e => {
+      if (e.key === " ") {
+        e.preventDefault();
+        this.addSugar();
+      }
+    });
+
     this.renderCoffee();
   }
 
